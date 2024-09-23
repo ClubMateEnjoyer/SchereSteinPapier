@@ -54,6 +54,11 @@ Im Terminal (!!diese Methode funktioniert in der Version 0.1 nur auf einem einzi
 ![image](https://github.com/user-attachments/assets/401174b0-ca47-41c9-804c-d70b92e78797)
 
 
+## Version 0.2
+-client input server ip und port
+-client kann "ende" spiel abbrechen
+
+
 
 
 
