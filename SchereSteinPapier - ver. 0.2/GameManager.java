@@ -37,7 +37,7 @@ public class GameManager {
             String movePlayer2 = in2.nextLine().toLowerCase();
 
             //wenn einer der moves "ende" ist, bricht das spiel ab
-            if (movePlayer1.equals("ende")) {
+            if (movePlayer1.equals("ende") || movePlayer2.equals("ende")) {
                 out1.println("Ein Spieler hat das Spiel beendet.");
                 out2.println("Ein Spieler hat das Spiel beendet.");
                 server.stopServer(); //server stoppen
