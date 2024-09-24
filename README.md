@@ -21,7 +21,7 @@ Der GameManager verwaltet das eigentliche Spiel. Auch hier werden wieder Output-
 Es gibt die 3 Klassen Server, Client und GameManger. Der Server akzeptiert genau 2 Spieler, startet das Spiel im Spielmanager, dieser gibt das Ergebnis als String zurück und alle Verbindungen und Resourcen werden wieder geschlossen.
 
 ## Demonstration per Video
-Relativ unprofessionel, aber ich hoffe es ist alles deutlich :) <br\>
+Relativ unprofessionel, aber ich hoffe es ist alles deutlich :) <br>
 https://youtu.be/uibVCJJv2Us
 
 
