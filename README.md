@@ -58,8 +58,6 @@ Im Terminal (!!diese Methode funktioniert in der Version 0.1 nur auf einem einzi
 -client input server ip und port
 -client kann "ende" spiel abbrechen
 
-## Version 0.3
--fixed in GameManager "if (movePlayer1.equals("ende"))" --> "if (movePlayer1.equals("ende") || movePlayer2.equals("ende"))..."
 
 
 
