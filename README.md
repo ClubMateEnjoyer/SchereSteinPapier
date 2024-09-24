@@ -1,5 +1,5 @@
 # SchereSteinPapier
-Dieses Projekt ist ein simples Schere-Stein-Papier-Spiel in Java, welches mittels Sockets eine Server-Client-Verbindung herstellt. Somit kann dieses Spiel per Verbindung von 2 Personen an unterschiedlichen Rechnern gegeneinander gespielt werden. Es soll die Grundlagen des Networkings in Java zeigen, und somit ist meine Implementierung auf den Multiplayer im lokalen Netzwerk beschrängt.
+Dieses Projekt ist ein simples Schere-Stein-Papier-Spiel in Java, welches mittels Sockets eine Server-Client-Verbindung herstellt. Somit kann dieses Spiel per Verbindung von 2 Personen an unterschiedlichen Rechnern gegeneinander gespielt werden. Es soll die Grundlagen des Networkings in Java zeigen, und somit ist meine Implementierung auf den Multiplayer im lokalen Netzwerk beschrängt. Man könnte den Server auch per Cloud-Service hosten und somit zu einem "vollwertigem" Online-Spiel umfunktionieren, darauf wurde hier aber verzichtet.
 
 ## Version 0.1
 Die erste funktionstüchtige Version. Sie beinhaltet 3 Java Klassen, Server, GameManager und Client. 
