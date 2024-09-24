@@ -7,15 +7,23 @@ Die erste funktionstüchtige Version. Sie beinhaltet 3 Java Klassen, Server, Gam
 #### Server.java
 Der Server akzeptiert die Verbindung von 2 Spieler und startet den Spielablauf in der Klasse GameManager. So wird in der main ein Server auf dem gegebenem Port, in diesem Fall die 6666.
 
-Mit der Methode "accept()" wird auf eine Verbindung für den aktuellen Socket gewartet. Bis diese nicht erstellt wurde, geht es im Code auch nicht weiter. Sind beide Verbindungen erstellt, sprich beide Spieler verbunden, werden die beiden Socket Objekte "player1" und "player2" in eine neue Instanz der Klasse GameManager übergeben. Mit diesen beiden wird nun im GameManager die Funktion "gameStart()" aufgerufen, welche genau das macht, was Name sagt. Ist das Spiel vorbei, wird der Serversocket geschlossen.
+Mit der Methode "accept()" wird auf eine Verbindung für den aktuellen Socket gewartet. Bis diese nicht erstellt wurde, geht es im Code auch nicht weiter. Sind beide Verbindungen erstellt, sprich beide Spieler verbunden, werden die beiden Socket Objekte "player1" und "player2" in eine neue Instanz der Klasse GameManager übergeben. Mit diesen beiden wird nun im GameManager die Funktion "gameStart()" aufgerufen, welche genau das macht, was Name sagt. Ist das Spiel vorbei, wird der Serversocket geschlossen. Es wird sequentiell gearbeitet und ohne Threads, es können also nur 2 Spieler gleichzeitig spielen.
 
 #### Client.java
 Der Client ist die Klasse des Spielers, das Gegenstück zum Server. Diese ermöglicht es dem Spieler Eingaben zu tätigen und die Verbindung herzustellen.
 
-Mit der Klasse _Socket_ wird die Verbindung zum Server per Hostname/IP und dem Port hergestellt. Dirch die beiden Methoden ".getInputStream()" und ".getOutputStream()" kriegt der Client bzw. Spieler die Möglichkeit, Daten zum Server zu senden (Output) und zu erhalten (Input). Der Input des Servers kann bei Client angezeigt werden, zb. durch "System.out.println(in.nextLine());" Am Ende werden auch hier alle genutzten Resourcen geschlossen und stehen wieder zu verfügung.
+Mit der Klasse _Socket_ wird die Verbindung zum Server per Hostname/IP und dem Port hergestellt. Dirch die beiden Methoden "getInputStream()" und "getOutputStream()" kriegt der Client bzw. Spieler die Möglichkeit, Daten zum Server zu senden (Output) und zu erhalten (Input). Der Input des Servers kann bei Client angezeigt werden, zb. durch "System.out.println(in.nextLine());". Am Ende werden auch hier alle genutzten Resourcen geschlossen und stehen wieder zu verfügung.
 
 #### GameManager.java
-Der GameManager verwaltet das eigentliche Spiel. Auch hier werden wieder Output- und Inputstreams verwendet, in1 und out1 für player1 und das gleiche für player2. Es werden die Moves abgefragt und das Ergebnis als String ausgegeben. Die Methode "decideWinner()" gibt also nru einen String zurück, es werden Scores in Form von Punkten oder vergleichbaren Gespeichert oder vergeben. Wie immer werden auch hier die verwendeten Resourcen geschlossen.
+Der GameManager verwaltet das eigentliche Spiel. Auch hier werden wieder Output- und Inputstreams verwendet, in1 und out1 für player1 und das gleiche für player2. Es werden die Moves abgefragt und das Ergebnis als String ausgegeben. Die Methode "decideWinner()" gibt also nur einen String zurück, es werden Scores in Form von Punkten oder vergleichbaren gespeichert oder vergeben. Wie immer werden auch hier die verwendeten Resourcen geschlossen.
+
+## Version 0.2
+Die Spieler haben nun jeweils die Möglichkeit, durch die Eingabe "ende" anstelle eines Moves, das Spiel zu beenden, ohne dass die Spiellogik ausgeführt wird. Dies geschieht durch die neu hinzugefügten Boolean-Wert "isRunning". Sobald "isRunning" false wird, endet der Server und somit auch das Spiel.
+
+Die zweite Änderung ist die Möglichkeit für den Client, vor dem Verbinden den Hostname sowie den Port selber einzugeben. Somit ist diese Version auch über mehrere Geräte Spielbar, da der Code nicht auf den localhost beschränkt ist. 
+
+### Version 0.2.1
+Die Kommentare wurde auf Grammatik und Rechtschreibung geprüft, einige wurden hinzugefügt und das Programm sollte nun leichter verständlich sein anhand der Kommentare.
 
 ## Zusammenfassung
 Es gibt die 3 Klassen Server, Client und GameManger. Der Server akzeptiert genau 2 Spieler, startet das Spiel im Spielmanager, dieser gibt das Ergebnis als String zurück und alle Verbindungen und Resourcen werden wieder geschlossen.
@@ -59,13 +67,7 @@ Im Terminal (!!diese Methode funktioniert in der Version 0.1 nur auf einem einzi
 
 
 
-## Version 0.2
-Die Spieler haben nun jeweils die Möglichkeit, durch die Eingabe "ende" anstelle eines Moves, das Spiel zu beenden, ohne dass die Spiellogik ausgeführt wird. Dies geschieht durch die neu hinzugefügten Boolean-Wert "isRunning". Sobald "isRunning" false wird, endet der Server und somit auch das Spiel.
 
-Die zweite Änderung ist die Möglichkeit für den Client, vor dem Verbinden den Hostname sowie den Port selber einzugeben. Somit ist diese Version auch über mehrere Geräte Spielbar, da der Code nicht auf den localhost beschränkt ist. 
-
-### Version 0.2.1
-Die Kommentare wurde auf Grammatik und Rechtschreibung geprüft, einige wurden hinzugefügt und das Programm sollte nun leichter verständlich sein anhand der Kommentare.
 
 
 
